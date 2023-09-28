@@ -10,8 +10,10 @@ func main() {
   e := echo.New()
 
   e.GET("/", func (c echo.Context) error {
-    return c.String(http.StatusOK, "Hello, world!")
+    return c.JSON(http.StatusOK, map[string]interface{}{
+      "message": "Hello, world!",
+    })
   })
 
-  e.Start(":2200")
+  e.Start(":2100")
 }
